@@ -17,5 +17,9 @@ sealed class AppTheme {
       errorBorder: _border(AppColors.errorColor),
       contentPadding: EdgeInsets.all(28),
     ),
+    chipTheme: ChipThemeData(
+      color: WidgetStatePropertyAll(AppColors.backgroundColor),
+      side: BorderSide.none,
+    ),
   );
 }

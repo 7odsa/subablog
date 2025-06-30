@@ -7,11 +7,13 @@ environment:
   sdk: ^3.8.1
 
 dependencies:
+  dotted_border: ^3.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
   fpdart: ^1.1.1
   get_it: ^8.0.3
+  image_picker: ^1.1.2
   supabase_flutter: ^2.9.1
 
 dev_dependencies:

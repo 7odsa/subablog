@@ -4,31 +4,24 @@ import 'package:subablog/core/usecase/usecase.dart';
 import 'package:subablog/core/common/entities/user_entity.dart';
 import 'package:subablog/features/auth/domain/repos/auth_repo.dart';
 
-class SignupUsecase implements Usecase<UserEntity, UserSignUpParams> {
-  final AuthRepo authRepo;
+class LoginUsecase implements Usecase<UserEntity, LoginParams> {
+  final AuthRepo _authRepo;
 
-  SignupUsecase({required this.authRepo});
-
+  LoginUsecase({required AuthRepo authRepo}) : _authRepo = authRepo;
   @override
   Future<Either<Failure, UserEntity>> call({
-    required UserSignUpParams params,
+    required LoginParams params,
   }) async {
-    return await authRepo.signUpWithEmailAndPassword(
-      name: params.name,
+    return await _authRepo.loginWithEmailAndPassword(
       email: params.email,
       password: params.password,
     );
   }
 }
 
-class UserSignUpParams {
+class LoginParams {
   final String email;
-  final String name;
   final String password;
 
-  UserSignUpParams({
-    required this.email,
-    required this.name,
-    required this.password,
-  });
+  LoginParams({required this.email, required this.password});
 }
